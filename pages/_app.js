@@ -1,4 +1,4 @@
-import Layout from "../components/layout/Layout";
+import Layout from "../components/allPageComponents/layout/Layout";
 import "../styles/globals.css";
 import "normalize.css";
 

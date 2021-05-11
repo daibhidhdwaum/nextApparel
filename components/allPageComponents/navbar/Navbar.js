@@ -3,7 +3,6 @@ import Link from "next/link";
 import * as styles from "./navbar.module.css";
 
 const Navbar = ({ isOpen }) => {
-  console.log(isOpen);
   return (
     <nav>
       <ul

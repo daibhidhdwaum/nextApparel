@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "contentful": "^8.3.5",
     "next": "10.x",
     "normalize.css": "^8.0.1",
     "react": "17.x",
