@@ -1,22 +1,27 @@
 import Link from "next/link";
 
-const Navbar = () => {
+import * as styles from "./navbar.module.css";
+
+const Navbar = ({ isOpen }) => {
+  console.log(isOpen);
   return (
     <nav>
-      <h1>nextApparel</h1>
-      <ul>
-        <li>
+      <ul
+        className={`${styles.menuLinks} ${
+          isOpen ? styles.isOpen : styles.isClosed
+        } `}
+      >
+        <li className={styles.menuLink}>
           <Link href="/">
             <a>Home</a>
           </Link>
         </li>
-        <li>
+        <li className={styles.menuLink}>
           <Link href="/">
             <a>Men</a>
           </Link>
         </li>
-
-        <li>
+        <li className={styles.menuLink}>
           <Link href="/">
             <a>Women</a>
           </Link>

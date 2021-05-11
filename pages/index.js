@@ -16,7 +16,7 @@ export default function Home({ products }) {
   );
 }
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async () => {
   const products = await client.product.fetchAll();
   const policies = await client.shop.fetchPolicies();
 

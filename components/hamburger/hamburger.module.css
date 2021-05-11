@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8em;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+}
+
+.bars {
+  font-size: 2.5rem;
+}
