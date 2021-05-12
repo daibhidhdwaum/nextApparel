@@ -12,7 +12,7 @@ export default function Home({ products, hero }) {
         <title>Next Apparel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className={styles.main}>
         <Hero hero={hero} />
       </main>
     </div>

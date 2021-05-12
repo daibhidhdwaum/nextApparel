@@ -14,10 +14,14 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Logo />
-        <Hamburger onClickHandler={onClickHandler} />
+        <div className={styles.wrapper}>
+          <div className={styles.logo}>
+            <Logo />
+            <Hamburger onClickHandler={onClickHandler} />
+          </div>
+          <Navbar isOpen={isOpen} />
+        </div>
       </div>
-      <Navbar isOpen={isOpen} />
     </header>
   );
 };

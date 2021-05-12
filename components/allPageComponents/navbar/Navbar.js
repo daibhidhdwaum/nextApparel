@@ -4,7 +4,7 @@ import * as styles from "./navbar.module.css";
 
 const Navbar = ({ isOpen }) => {
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul
         className={`${styles.menuLinks} ${
           isOpen ? styles.isOpen : styles.isClosed

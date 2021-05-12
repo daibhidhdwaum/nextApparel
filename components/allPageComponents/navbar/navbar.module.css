@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
+.nav {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  left: 0;
+  top: 16px;
+}
 .menuLinks {
+  background-color: #f6f0ed;
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
@@ -10,29 +18,28 @@
   text-transform: uppercase;
   font-size: 1.8rem;
   margin: 0;
-  position: absolute;
-  bottom: 0;
-  z-index: -1;
-  transition-duration: 2s;
 }
 
 .isClosed {
-  transform: translateY(-100%);
+  transform: translateY(-50%);
   transition: ease-in 0.7s;
 }
 
 .isOpen {
-  transform: translateY(100%);
+  transform: translateY(59%);
   transition: ease-in 0.7s;
 }
 
 .menuLink {
   width: 100%;
-  padding: 0.5em;
+  padding: 1em;
   text-align: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .menuLinks a {
+  display: inline-block;
+  padding-bottom: 0.5em;
+  width: 60%;
   color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
