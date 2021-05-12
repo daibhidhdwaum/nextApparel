@@ -16,12 +16,12 @@ const Navbar = ({ isOpen }) => {
           </Link>
         </li>
         <li className={styles.menuLink}>
-          <Link href="/">
+          <Link href="/men">
             <a>Men</a>
           </Link>
         </li>
         <li className={styles.menuLink}>
-          <Link href="/">
+          <Link href="/women">
             <a>Women</a>
           </Link>
         </li>

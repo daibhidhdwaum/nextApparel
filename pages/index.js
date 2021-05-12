@@ -1,19 +1,36 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import Link from "next/link";
+// utils and apis
 import { client } from "../utils/shopify";
 import { createClientFunc } from "../apis/contentful";
-
+// components
 import Hero from "../components/body/hero/Hero";
+import WomensStyles from "../components/body/women/WomensStyles";
+import MensStyles from "../components/body/men/MensStyles";
+// styles
+import styles from "../styles/Home.module.css";
 
 export default function Home({ products, hero }) {
+  console.log(products);
+
+  const mensStyles = products.filter(
+    (product) => product.productType === "men"
+  );
+
+  const womensStyles = products.filter(
+    (product) => product.productType === "women"
+  );
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Next Apparel</title>
+        <title>nextApparel | home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
         <Hero hero={hero} />
+        <WomensStyles womensStyles={womensStyles} />
+        <MensStyles mensStyles={mensStyles} />
       </main>
     </div>
   );
