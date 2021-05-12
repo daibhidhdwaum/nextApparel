@@ -1,5 +1,6 @@
 .hero {
   border: 1px solid black;
+  width: 100%;
 }
 
 .wrapper {
@@ -28,9 +29,15 @@
   padding-left: 0.5rem;
 }
 
-.hero h2,
-.hero p {
-}
+/* .imageContainer {
+  width: 1100px;
+  height: 500px;
+} */
 
-.heroImage {
-}
+/* @media (min-width: 768px) {
+  .text {
+    position: absolute;
+    top: 20%;
+    right: 25%;
+  }
+} */

@@ -21,10 +21,9 @@
   margin: 0 auto;
 }
 
-.logo {
+.logoAndBurger {
   height: 20vh;
   background-color: #f6f0ed;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
