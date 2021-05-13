@@ -5,7 +5,7 @@ import * as styles from "./card.module.css";
 
 const WomensStyles = ({ line }) => {
   return (
-    <ul>
+    <ul className={styles.list}>
       {line.map((product) => {
         const { id, description, title, variants, images } = product;
         const { src } = images[0];
@@ -13,8 +13,13 @@ const WomensStyles = ({ line }) => {
         return (
           <li key={id} className={styles.card}>
             <Link href={"/"}>
-              <div className={styles.imageCont}>
-                <Image src={`${src}`} width={600} height={400} />
+              <div>
+                <Image
+                  src={`${src}`}
+                  width={600}
+                  height={400}
+                  className={styles.image}
+                />
                 <div className={styles.productDetails}>
                   <h3>{title}</h3>
                   <p>{description}</p>

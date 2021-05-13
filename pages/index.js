@@ -5,11 +5,14 @@ import { client } from "../utils/shopify";
 import { createClientFunc } from "../apis/contentful";
 // components
 import Hero from "../components/body/hero/Hero";
+import Banner from "../components/body/banner/Banner";
 import FrontPageLineSelection from "../components/body/frontPageLineSelection/FrontPageLineSelection";
 // styles
 import styles from "../styles/Home.module.css";
 
-export default function Home({ mensStyles, womensStyles, hero }) {
+export default function Home({ mensStyles, womensStyles, hero, banners }) {
+  // props
+  console.log(banners);
   const limitNumberOfCards = (lineArr) => {
     const lineArrCopy = [...lineArr];
     const cardsToRender = lineArrCopy.slice(0, 2);
@@ -17,6 +20,9 @@ export default function Home({ mensStyles, womensStyles, hero }) {
     return cardsToRender;
   };
 
+  const pageBanner = banners.filter((banner) => banner.fields.tag === "front");
+  const bannerToDisplay = pageBanner[0].fields;
+  console.log(bannerToDisplay);
   const womensLine = limitNumberOfCards(womensStyles);
   const mensLine = limitNumberOfCards(mensStyles);
 
@@ -26,11 +32,14 @@ export default function Home({ mensStyles, womensStyles, hero }) {
         <title>nextApparel | home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <Hero hero={hero} />
-        <FrontPageLineSelection line={womensLine} />
-        <FrontPageLineSelection line={mensLine} />
-      </main>
+      <div className={styles.wrapper}>
+        <main className={styles.main}>
+          <Hero hero={hero} />
+          <FrontPageLineSelection line={womensLine} />
+          <Banner banner={bannerToDisplay} />
+          <FrontPageLineSelection line={mensLine} />
+        </main>
+      </div>
     </div>
   );
 }
@@ -40,8 +49,12 @@ export const getStaticProps = async () => {
 
   const products = await client.product.fetchAll();
   const policies = await client.shop.fetchPolicies();
-  const res = await contentfulClient.getEntries({ content_type: "hero" });
+  const heroRes = await contentfulClient.getEntries({ content_type: "hero" });
+  const bannersRes = await contentfulClient.getEntries({
+    content_type: "promoBanner",
+  });
 
+  console.log("policies", policies);
   const mensStyles = products.filter(
     (product) => product.productType === "men"
   );
@@ -55,7 +68,8 @@ export const getStaticProps = async () => {
       policies: JSON.parse(JSON.stringify(policies)),
       mensStyles: JSON.parse(JSON.stringify(mensStyles)),
       womensStyles: JSON.parse(JSON.stringify(womensStyles)),
-      hero: res.items[0].fields,
+      hero: heroRes.items[0].fields,
+      banners: bannersRes.items,
     },
   };
 };
