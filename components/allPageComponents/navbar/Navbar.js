@@ -12,17 +12,17 @@ const Navbar = ({ isOpen }) => {
       >
         <li className={styles.menuLink}>
           <Link href="/">
-            <a>Home</a>
+            <p>Home</p>
           </Link>
         </li>
         <li className={styles.menuLink}>
           <Link href="/men">
-            <a>Men</a>
+            <p>Men</p>
           </Link>
         </li>
         <li className={styles.menuLink}>
           <Link href="/women">
-            <a>Women</a>
+            <p>Women</p>
           </Link>
         </li>
       </ul>

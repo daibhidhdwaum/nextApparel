@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 // styles
-import * as styles from "../card.module.css";
+import * as styles from "./card.module.css";
 
-const WomensStyles = ({ womensStyles }) => {
+const WomensStyles = ({ line }) => {
   return (
     <ul>
-      {womensStyles.map((product) => {
+      {line.map((product) => {
         const { id, description, title, variants, images } = product;
         const { src } = images[0];
 

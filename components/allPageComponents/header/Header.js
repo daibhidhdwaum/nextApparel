@@ -15,11 +15,13 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <div className={styles.logoAndBurger}>
-            <Logo />
-            <Hamburger onClickHandler={onClickHandler} />
+          <div className={styles.content}>
+            <div className={styles.logoAndBurger}>
+              <Logo />
+              <Hamburger onClickHandler={onClickHandler} />
+            </div>
+            <Navbar isOpen={isOpen} />
           </div>
-          <Navbar isOpen={isOpen} />
         </div>
       </div>
     </header>

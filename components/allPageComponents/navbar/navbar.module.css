@@ -5,8 +5,8 @@
   z-index: -1;
   width: 100%;
   left: 0;
-  top: 16px;
 }
+
 .menuLinks {
   background-color: #f6f0ed;
   font-family: "Montserrat", sans-serif;
@@ -21,25 +21,58 @@
 }
 
 .isClosed {
-  transform: translateY(-50%);
+  transform: translateY(-100%);
   transition: ease-in 0.7s;
 }
 
 .isOpen {
-  transform: translateY(59%);
+  transform: translateY(0%);
   transition: ease-in 0.7s;
 }
 
 .menuLink {
   width: 100%;
-  padding: 1em;
   text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.menuLinks a {
-  display: inline-block;
-  padding-bottom: 0.5em;
+.menuLink:hover,
+.menuLink:focus-within {
+  cursor: pointer;
+}
+
+.menuLinks p {
+  padding: 1em;
+  margin: 0;
   width: 60%;
   color: #000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  .nav {
+    position: static;
+    z-index: 0;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    max-width: 40rem;
+  }
+
+  .menuLinks {
+    flex-direction: row;
+    transform: translateY(0);
+  }
+
+  .menuLinks p {
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid transparent;
+  }
+  .menuLink p:hover,
+  .menuLink p:focus-within {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
 }

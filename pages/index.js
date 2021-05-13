@@ -5,21 +5,20 @@ import { client } from "../utils/shopify";
 import { createClientFunc } from "../apis/contentful";
 // components
 import Hero from "../components/body/hero/Hero";
-import WomensStyles from "../components/body/women/WomensStyles";
-import MensStyles from "../components/body/men/MensStyles";
+import FrontPageLineSelection from "../components/body/frontPageLineSelection/FrontPageLineSelection";
 // styles
 import styles from "../styles/Home.module.css";
 
-export default function Home({ products, hero }) {
-  console.log(products);
+export default function Home({ mensStyles, womensStyles, hero }) {
+  const limitNumberOfCards = (lineArr) => {
+    const lineArrCopy = [...lineArr];
+    const cardsToRender = lineArrCopy.slice(0, 2);
 
-  const mensStyles = products.filter(
-    (product) => product.productType === "men"
-  );
+    return cardsToRender;
+  };
 
-  const womensStyles = products.filter(
-    (product) => product.productType === "women"
-  );
+  const womensLine = limitNumberOfCards(womensStyles);
+  const mensLine = limitNumberOfCards(mensStyles);
 
   return (
     <div className={styles.container}>
@@ -29,8 +28,8 @@ export default function Home({ products, hero }) {
       </Head>
       <main className={styles.main}>
         <Hero hero={hero} />
-        <WomensStyles womensStyles={womensStyles} />
-        <MensStyles mensStyles={mensStyles} />
+        <FrontPageLineSelection line={womensLine} />
+        <FrontPageLineSelection line={mensLine} />
       </main>
     </div>
   );
@@ -43,10 +42,19 @@ export const getStaticProps = async () => {
   const policies = await client.shop.fetchPolicies();
   const res = await contentfulClient.getEntries({ content_type: "hero" });
 
+  const mensStyles = products.filter(
+    (product) => product.productType === "men"
+  );
+
+  const womensStyles = products.filter(
+    (product) => product.productType === "women"
+  );
+
   return {
     props: {
       policies: JSON.parse(JSON.stringify(policies)),
-      products: JSON.parse(JSON.stringify(products)),
+      mensStyles: JSON.parse(JSON.stringify(mensStyles)),
+      womensStyles: JSON.parse(JSON.stringify(womensStyles)),
       hero: res.items[0].fields,
     },
   };
