@@ -3,8 +3,9 @@ import "../styles/globals.css";
 import "normalize.css";
 
 function MyApp({ Component, pageProps }) {
+  const { policies } = pageProps;
   return (
-    <Layout>
+    <Layout policies={policies}>
       <Component {...pageProps} />
     </Layout>
   );

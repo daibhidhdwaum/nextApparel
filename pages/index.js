@@ -4,15 +4,13 @@ import Link from "next/link";
 import { client } from "../utils/shopify";
 import { createClientFunc } from "../apis/contentful";
 // components
-import Hero from "../components/body/hero/Hero";
-import Banner from "../components/body/banner/Banner";
-import FrontPageLineSelection from "../components/body/frontPageLineSelection/FrontPageLineSelection";
+import Hero from "../components/content/hero/Hero";
+import Banner from "../components/content/banner/Banner";
+import FrontPageLineSelection from "../components/content/frontPageLineSelection/FrontPageLineSelection";
 // styles
 import styles from "../styles/Home.module.css";
 
 export default function Home({ mensStyles, womensStyles, hero, banners }) {
-  // props
-  console.log(banners);
   const limitNumberOfCards = (lineArr) => {
     const lineArrCopy = [...lineArr];
     const cardsToRender = lineArrCopy.slice(0, 2);
@@ -22,7 +20,6 @@ export default function Home({ mensStyles, womensStyles, hero, banners }) {
 
   const pageBanner = banners.filter((banner) => banner.fields.tag === "front");
   const bannerToDisplay = pageBanner[0].fields;
-  console.log(bannerToDisplay);
   const womensLine = limitNumberOfCards(womensStyles);
   const mensLine = limitNumberOfCards(mensStyles);
 
@@ -54,7 +51,6 @@ export const getStaticProps = async () => {
     content_type: "promoBanner",
   });
 
-  console.log("policies", policies);
   const mensStyles = products.filter(
     (product) => product.productType === "men"
   );

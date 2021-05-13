@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Card from "../Card";
+import Card from "../card/Card";
 import * as styles from "./frontPageLineSelection.module.css";
 
 const FrontPageLineSelection = ({ line }) => {

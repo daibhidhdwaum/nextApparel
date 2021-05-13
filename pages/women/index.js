@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { client } from "../../utils/shopify";
 
-import Card from "../../components/body/Card";
+import Card from "../../components/content/card/Card";
 
 const Women = ({ womensStyles }) => {
   return (
     <>
       <Head>
-        <title>nextApparel | home</title>
+        <title>nextApparel | women</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -20,11 +20,10 @@ const Women = ({ womensStyles }) => {
 };
 
 export const getStaticProps = async () => {
-  // const contentfulClient = createClientFunc();
+  const contentfulClient = createClientFunc();
 
   const products = await client.product.fetchAll();
   const policies = await client.shop.fetchPolicies();
-  // const res = await contentfulClient.getEntries({ content_type: "hero" });
 
   const womensStyles = products.filter(
     (product) => product.productType === "women"

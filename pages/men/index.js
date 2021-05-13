@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { client } from "../../utils/shopify";
 
-import Card from "../../components/body/Card";
+import Card from "../../components/content/card/Card";
 
-const Women = ({ mensStyles }) => {
+const Men = ({ mensStyles }) => {
   return (
     <>
       <Head>
-        <title>nextApparel | home</title>
+        <title>nextApparel | men</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
@@ -24,11 +24,11 @@ export const getStaticProps = async () => {
 
   const products = await client.product.fetchAll();
   const policies = await client.shop.fetchPolicies();
-  // const res = await contentfulClient.getEntries({ content_type: "hero" });
 
   const mensStyles = products.filter(
     (product) => product.productType === "men"
   );
+
   return {
     props: {
       policies: JSON.parse(JSON.stringify(policies)),
@@ -37,4 +37,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default Women;
+export default Men;

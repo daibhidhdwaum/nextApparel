@@ -1,7 +1,6 @@
 import Image from "next/image";
 import * as styles from "../banner/banner.module.css";
 const Hero = ({ banner }) => {
-  console.log(banner);
   const {
     headline,
     image: {
@@ -12,7 +11,6 @@ const Hero = ({ banner }) => {
     secondaryText,
   } = banner;
 
-  console.log(url);
   // ! Image and width and url are required to display image
   // ! Image domain must be added to next.config.js domains array for image to display
 

@@ -1,6 +1,7 @@
 .list {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   border: 1px solid rgba(80, 80, 80, 0.4);
   border-radius: 5px;
   padding: 2em;
@@ -10,8 +11,9 @@
   width: 90%;
   margin: 5rem auto;
   border: 1px solid rgba(73, 72, 72, 0.5);
-  max-width: 44em;
+  max-width: 60em;
   box-shadow: -12px 10px 12px -2px rgba(80, 80, 80, 1);
+  flex-basis: 50%;
 }
 
 .card:hover {
@@ -47,10 +49,11 @@
 @media (min-width: 768px) {
   .list {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
   }
 
   .card {
     margin: 2rem;
+    max-width: 45%;
   }
 }
