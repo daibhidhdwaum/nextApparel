@@ -20,8 +20,6 @@ const Women = ({ womensStyles }) => {
 };
 
 export const getStaticProps = async () => {
-  const contentfulClient = createClientFunc();
-
   const products = await client.product.fetchAll();
   const policies = await client.shop.fetchPolicies();
 
