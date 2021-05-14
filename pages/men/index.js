@@ -3,13 +3,12 @@ import { client } from "../../utils/shopify";
 import { createClientFunc } from "../../apis/contentful";
 import Card from "../../components/content/card/Card";
 import * as styles from "../../styles/Men.module.css";
+
 const Men = ({ mensStyles, banners }) => {
   console.log(mensStyles);
 
   const pageBanner = banners.filter((banner) => banner.fields.tag === "men");
-  console.log(pageBanner);
   const bannerToDisplay = pageBanner[0].fields;
-  console.log(bannerToDisplay);
 
   const {
     headline,
