@@ -14,16 +14,20 @@ const Card = ({ line }) => {
           return (
             <li key={id} className={styles.card}>
               <Link href={"/"}>
-                <div>
-                  <Image
-                    src={`${src}`}
-                    width={700}
-                    height={400}
-                    className={styles.image}
-                  />
-                  <div className={styles.productDetails}>
+                <div className={styles.cardContainer}>
+                  <div>
+                    <Image
+                      src={`${src}`}
+                      width={700}
+                      height={400}
+                      className={styles.image}
+                    />
+                  </div>
+                  <div className={styles.cardCopy}>
                     <h3>{title}</h3>
                     <p>{description}</p>
+                  </div>
+                  <div className={styles.price}>
                     {variants.length > 1 ? (
                       <p>Starting at ${variants[0].price}</p>
                     ) : (

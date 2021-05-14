@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2.5rem;
+}
+
+.platform {
+  font-size: 3rem;
+  color: rgb(240, 227, 255);
+}
+
+@media (min-width: 550px) {
+  .list {
+    flex-direction: row;
+  }
+  .platform {
+    padding: 0 1rem;
+  }
+}

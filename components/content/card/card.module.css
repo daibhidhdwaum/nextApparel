@@ -8,6 +8,7 @@
   margin: 2rem auto;
   border: 1px solid rgba(73, 72, 72, 0.5);
   box-shadow: -12px 10px 12px -2px rgba(80, 80, 80, 1);
+  background-color: white;
 }
 
 .card:hover {
@@ -15,28 +16,39 @@
   border: 1px solid rgba(80, 80, 80, 1);
 }
 
-.productDetails {
-  margin-top: -3px;
+.cardCopy,
+.price {
   background-color: white;
   font-family: "Monserrat", sans-serif;
   padding: 0.9rem;
-  border-top: 1px solid rgba(73, 72, 72, 0.5);
+  color: rgba(41, 36, 36, 0.9);
 }
 
-.productDetails h3 {
+.cardCopy {
+  margin-top: -3px;
+  border-top: 1px solid rgba(73, 72, 72, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCopy h3 {
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: 200;
-  color: rgba(41, 36, 36, 0.9);
   margin: 0.4rem 0;
   letter-spacing: 0.2rem;
 }
 
-.productDetails p {
+.cardCopy p {
   color: rgba(73, 72, 72, 0.8);
   margin: 1rem 0;
+  flex: 1;
   font-size: 1.6rem;
   font-style: italic;
+}
+
+.price {
+  font-size: 2rem;
 }
 
 @media (min-width: 768px) {

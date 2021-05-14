@@ -1,5 +1,7 @@
 import * as styles from "./footer.module.css";
 
+import Social from "../../content/social/Social";
+
 const Footer = ({ policies }) => {
   let policiesArray = [];
 
@@ -12,16 +14,19 @@ const Footer = ({ policies }) => {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
-        <ul className={styles.policies}>
-          {policiesToDisplay.map((policy) => {
-            const { title } = policy;
-            return (
-              <li className={styles.policy}>
-                <p>{title}</p>
-              </li>
-            );
-          })}
-        </ul>
+        <div className={styles.container}>
+          <ul className={styles.policies}>
+            {policiesToDisplay.map((policy) => {
+              const { title } = policy;
+              return (
+                <li className={styles.policy}>
+                  <p>{title}</p>
+                </li>
+              );
+            })}
+          </ul>
+          <Social className={styles.social} />
+        </div>
         <small className={styles.copy}>copyright © 2021</small>
       </div>
     </footer>
