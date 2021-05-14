@@ -1,5 +1,5 @@
 .main {
-  transform: translateY(15rem);
+  transform: translateY(14rem);
 }
 
 .banner {
@@ -11,20 +11,36 @@
 }
 
 .wrapper {
-  width: 100%;
+  width: 90%;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.headline {
   height: 50em;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .banner h3 {
   color: white;
-  font-size: 7rem;
+  font-size: 4rem;
   font-family: "Monserrat", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1rem;
   font-weight: 200;
+  position: relative;
+  bottom: 10rem;
+  left: -1rem;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    width: 100%;
+  }
+
+  .banner h3 {
+    font-size: 7rem;
+  }
 }

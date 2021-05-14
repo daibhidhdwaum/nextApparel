@@ -7,7 +7,9 @@ const FrontPageLineSelection = ({ line }) => {
 
   return (
     <section>
-      <Card line={line} />
+      <div>
+        <Card line={line} />
+      </div>
       <Link href={`/${productType}`} className={styles.link}>
         <p className={styles.link}>shop {productType}</p>
       </Link>

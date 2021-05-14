@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 // utils and apis
-import { client } from "../utils/shopify";
+import { client } from "../apis/shopify";
 import { createClientFunc } from "../apis/contentful";
+import { limitNumberOfCards } from "../utils/limitNumberOfCards";
 // components
 import Hero from "../components/content/hero/Hero";
 import Banner from "../components/content/banner/Banner";
@@ -11,13 +12,6 @@ import FrontPageLineSelection from "../components/content/frontPageLineSelection
 import styles from "../styles/Home.module.css";
 
 export default function Home({ mensStyles, womensStyles, hero, banners }) {
-  const limitNumberOfCards = (lineArr) => {
-    const lineArrCopy = [...lineArr];
-    const cardsToRender = lineArrCopy.slice(0, 2);
-
-    return cardsToRender;
-  };
-
   const pageBanner = banners.filter((banner) => banner.fields.tag === "front");
   const bannerToDisplay = pageBanner[0].fields;
   const womensLine = limitNumberOfCards(womensStyles);

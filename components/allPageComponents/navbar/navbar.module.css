@@ -70,7 +70,14 @@
   .menuLinks p {
     padding-bottom: 0.2em;
     border-bottom: 1px solid transparent;
+
+    padding-right: 0;
   }
+
+  .menuLink {
+    margin-right: 0;
+  }
+
   .menuLink p:hover,
   .menuLink p:focus-within {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { client } from "../../utils/shopify";
+import { client } from "../../apis/shopify";
 import { createClientFunc } from "../../apis/contentful";
 import Card from "../../components/content/card/Card";
 import * as styles from "../../styles/Men.module.css";
@@ -31,10 +31,12 @@ const Men = ({ mensStyles, banners }) => {
           className={styles.banner}
         >
           <div className={styles.wrapper}>
-            <h3>{headline}</h3>
+            <div className={styles.headline}>
+              <h3>{headline}</h3>
+            </div>
           </div>
         </section>
-        <section>
+        <section className={`${styles.cards} ${styles.wrapper}`}>
           <Card line={mensStyles} />
         </section>
       </main>
